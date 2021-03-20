@@ -1,3 +1,6 @@
 .customize{
     margin-top: 10px;
 }
+.buttons{
+    display:flex;
+}

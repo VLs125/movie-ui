@@ -2,17 +2,18 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 
 import apis from '../../api/index'
-import { Context } from '../../context/Context'
+import {Context} from '../../context/Context'
 
 const Delete = styled.div`
 color: #ff0000;
 cursor: pointer;
+&:hover{
+    display: inline-block;
+    box-shadow: 2px 2px 2px black;
+}
 `
 
-const DeleteMovie = () => {
-
-    const{id} = useContext(Context);
-
+const DeleteMovie = ({id}) => {
 
 
     const deleteUser = event => {

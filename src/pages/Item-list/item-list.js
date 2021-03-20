@@ -1,29 +1,33 @@
-import React, { useContext } from 'react'
-
+import React, { useCallback, useContext,useState } from 'react'
+import './item-list.css'
 import { Context } from '../../context/Context.js';
+import MovieDetails from '../MovieDetails';
+import DetailsMovie from '../../components/Buttons/details-movie';
 const { default: DeleteMovie } = require("../../components/Buttons/delete");
 const { default: UpdateMovie } = require("../../components/Buttons/update");
 
 
 const ItemList = () => {
+    const { data } = useContext(Context)
 
-    const {data} = useContext(Context)
+
+
 
     let count = 1;
     return data.map((item) => {
         const id = item._id
-        
         return (
-            <Context.Provider value={{id}}>
-        <tr key={id} className="movies-list">
-            <th scope="row">{count++}</th>
-            <td>{item.name}</td>
-            <td>{item.rating}</td>
-            <td>{item.time.map((item)=>item+"  /")}</td>
-            <td><span><UpdateMovie /></span><span><DeleteMovie /></span></td>
-        </tr>
-        </Context.Provider>
-    )})
+           
+                
+                <tr key={id} className="movies-list">
+        
+                    <th scope="row">{count++}</th>
+                    <td>{item.name}</td>
+                    <td className="buttons"><span ><UpdateMovie id={id} /></span><span><DeleteMovie id={id}/></span><span><DetailsMovie id={id}/></span></td>
+                </tr>
+    
+        )
+    })
 }
 
 export default ItemList

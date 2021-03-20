@@ -19,7 +19,7 @@ const [isLoading, setIsLoading] = useState(false);
 
 useEffect(() => {
     let isCanceled = false
-    apis.getAllMovies()
+  apis.getAllMovies()
         .then(movie => {
             setData(movie.data.data);
             setIsLoading(true);
@@ -29,6 +29,7 @@ useEffect(() => {
     }
 }, [])
 
+
     return (
         <Context.Provider value={{data}}>
         <Wrapper>
@@ -37,9 +38,7 @@ useEffect(() => {
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Rating</th>
-                        <th scope="col">Time</th>
-                        <th scope="col">Actions</th>
+                        <th  scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>

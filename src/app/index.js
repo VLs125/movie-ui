@@ -5,6 +5,7 @@ import { NavBar } from '../components'
 import { MoviesList, MoviesInsert, MoviesUpdate } from '../pages'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import MovieDetails from '../pages/MovieDetails'
 
 function App() {
     return (
@@ -19,6 +20,12 @@ function App() {
                     exact
                     component={MoviesUpdate}
                 />
+                <Route 
+                path="/movies/details/:id" 
+                exact 
+                component={MovieDetails}>
+
+                </Route>
             </Switch>
         </Router>
     )
