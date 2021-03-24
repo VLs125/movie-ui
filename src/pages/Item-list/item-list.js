@@ -1,7 +1,6 @@
 import React, { useCallback, useContext,useState } from 'react'
 import './item-list.css'
 import { Context } from '../../context/Context.js';
-import MovieDetails from '../MovieDetails';
 import DetailsMovie from '../../components/Buttons/details-movie';
 const { default: DeleteMovie } = require("../../components/Buttons/delete");
 const { default: UpdateMovie } = require("../../components/Buttons/update");
@@ -18,7 +17,6 @@ const ItemList = () => {
         const id = item._id
         return (
            
-                
                 <tr key={id} className="movies-list">
         
                     <th scope="row">{count++}</th>
