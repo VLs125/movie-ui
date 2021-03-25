@@ -4,7 +4,6 @@ import {Redirect} from 'react-router-dom';
 
 
 const LoginPage = ({isLoggedIn, onLogin})=>{
-    console.log(isLoggedIn)
     if(isLoggedIn){
         return <Redirect to="/movies/list"/>
     }

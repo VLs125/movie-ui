@@ -26,6 +26,7 @@ useEffect(() => {
         <React.Fragment>
         <div>Film</div>
         <div> {data.name} </div>
+        <img src={data.img}/>
         </React.Fragment>)
 
 }
