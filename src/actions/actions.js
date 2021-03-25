@@ -21,21 +21,21 @@ const moviesError = (error) => {
 }
 export const movieUpdate = (movieId) => {
     return {
-        type: 'BOOK_ADDED_TO_CART',
+        type: 'MOVIE_UPDATE',
         payload: bookId,
     };
 
 }
 export const movieDelete = (movieId) => {
     return {
-        type: 'BOOK_REMOVE_FROM_CART',
+        type: 'MOVIE_DELETE',
         payload: bookId,
     };
 
 }
 export const movieCreate = (newMovies) => {
     return {
-        type: 'BOOK_DECREASE_IN_CART',
+        type: 'MOVIE_CREATE',
         payload: newMovies,
     };
 
