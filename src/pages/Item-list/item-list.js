@@ -1,4 +1,4 @@
-import React, { useCallback, useContext,useState } from 'react'
+import React, {useContext} from 'react'
 import './item-list.css'
 import { Context } from '../../context/Context.js';
 import DetailsMovie from '../../components/Buttons/details-movie';

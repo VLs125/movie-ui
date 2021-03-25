@@ -4,13 +4,12 @@ import styled from 'styled-components'
 import ItemList from './Item-list/item-list'
 import apis from '../api'
 import { Context } from '../context/Context'
+import { fetchMovies } from '../actions/actions'
+import { connect } from 'react-redux'
 
 const Wrapper = styled.div`
     padding: 0 40px 40px 40px;
 `
-
-
-
 const MoviesList = () => {
 
 
@@ -19,7 +18,7 @@ const [isLoading, setIsLoading] = useState(false);
 
 useEffect(() => {
     let isCanceled = false
-  apis.getAllMovies()
+    apis.getAllMovies()
         .then(movie => {
             setData(movie.data.data);
             setIsLoading(true);
@@ -31,7 +30,6 @@ useEffect(() => {
 
 
     return (
-        <Context.Provider value={{data}}>
         <Wrapper>
             <table className="table customize">
                 <thead>
@@ -46,8 +44,18 @@ useEffect(() => {
                 </tbody>
             </table>
         </Wrapper>
-        </Context.Provider>
     )
 }
+const mapStateToProps = ({data} ) => {
+    return { 
+        data:data
+     }
+}
+const mapDispatchToProps = (dispatch) => {
+    const api = apis
+    return {
+        fetchMovies: fetchMovies(api, dispatch),
+    }
+}
 
-export default MoviesList
+export default connect(mapStateToProps, mapDispatchToProps)(MoviesList)

@@ -22,14 +22,14 @@ const moviesError = (error) => {
 export const movieUpdate = (movieId) => {
     return {
         type: 'MOVIE_UPDATE',
-        payload: bookId,
+        payload: movieId,
     };
 
 }
 export const movieDelete = (movieId) => {
     return {
         type: 'MOVIE_DELETE',
-        payload: bookId,
+        payload: movieId,
     };
 
 }
@@ -42,10 +42,11 @@ export const movieCreate = (newMovies) => {
 }
 
 const fetchMovies = (apis, dispatch) => () => {
+    console.log(apis);
     dispatch(moviesRequested());
     apis.getAllMovies()
         .then((data) => {
-            dispatch(moviesLoaded(data));
+            dispatch(moviesLoaded(data.data));
         })
         .catch((error) => {
             dispatch(moviesError(error));
