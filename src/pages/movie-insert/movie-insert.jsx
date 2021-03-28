@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react'
 import api from '../../api'
 
 import styled from 'styled-components'
+import apis from '../../api'
 
 const Title = styled.h1.attrs({
     className: 'h1',
@@ -39,6 +40,8 @@ const MoviesInsert = (props) => {
     const [name, setName] = useState('');
     const [rating, setRating] = useState('');
     const [time, setTime] = useState('');
+    const [img, setImg] = useState('');
+
     const [upload,setUpload]=useState({})
     
     useEffect(() => {
@@ -60,19 +63,23 @@ const MoviesInsert = (props) => {
     const  handleChangeInputTime =  (event) => {
         setTime(event.target.value);
     }
+    const  handleChangeInputImg =  (event) => {
+        setImg(event.target.value);
+    }
 
     const handleIncludeMovie = async () => {
         
         const arrayTime = time.split('/')
         await setUpload(
-            { name, rating, time: arrayTime }
+            { name, rating, time: arrayTime, img }
        );
-      api.insertMovie(upload)
+      apis.insertMovie(upload)
             .then(res => {
                 window.alert(`Movie inserted successfully`)
                 setName('');
                 setRating('');
                 setTime('');
+                setImg('');
             })
 
     }
@@ -106,6 +113,14 @@ const MoviesInsert = (props) => {
                     value={time}
                     onChange={handleChangeInputTime}
                 />
+
+                <Label>Image: </Label>
+                <InputText
+                    type="text"
+                    value={img}
+                    onChange={handleChangeInputImg}
+                />
+                
 
                 <Button onClick={handleIncludeMovie}>Add Movie</Button>
                 <CancelButton href={'/movies/list'}>Cancel</CancelButton>

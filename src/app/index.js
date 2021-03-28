@@ -1,8 +1,6 @@
 import React,{useState} from 'react'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
-
 import { NavBar } from '../components'
-
 import 'bootstrap/dist/css/bootstrap.min.css'
 import LoginPage from '../pages/auth/login'
 import SecretPage from '../pages/secret'
