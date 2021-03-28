@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { Context } from '../../context/Context'
 
 const Update = styled.div`
     color: #ef9b0f;
@@ -16,14 +15,14 @@ const Update = styled.div`
 
 const UpdateMovie = ({id}) => {
     
-    const updateUser = event => {
+    const update = event => {
         event.preventDefault()
 
         window.location.href = `/movies/update/${id}`
     }
 
     return (
-        <Update onClick={updateUser}>Update</Update>
+        <Update onClick={update}>Update</Update>
     )
 
 

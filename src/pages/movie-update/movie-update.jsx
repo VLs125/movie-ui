@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import api from '../api'
 
 import styled from 'styled-components'
+import apis from '../../api'
 
 const Title = styled.h1.attrs({
     className: 'h1',
@@ -44,6 +44,7 @@ class MoviesUpdate extends Component {
             name: '',
             rating: '',
             time: '',
+            img:'',
         }
     }
 
@@ -59,40 +60,46 @@ class MoviesUpdate extends Component {
 
         this.setState({ rating })
     }
-
     handleChangeInputTime = async event => {
         const time = event.target.value
         this.setState({ time })
     }
 
-    handleUpdateMovie = async () => {
-        const { id, name, rating, time } = this.state
-        const arrayTime = time.split('/')
-        const payload = { name, rating, time: arrayTime }
+    handleChangeInputImg = async event => {
+        const img = event.target.value
+        this.setState({ img })
+    }
 
-        await api.updateMovieById(id, payload).then(res => {
+    handleUpdateMovie = async () => {
+        const { id, name, rating, time, img } = this.state
+        const arrayTime = time.split('/')
+        const payload = { name, rating, time: arrayTime, img }
+
+        await apis.updateMovieById(id, payload).then(res => {
             window.alert(`Movie updated successfully`)
             this.setState({
                 name: '',
                 rating: '',
                 time: '',
+                img:'',
             })
         })
     }
 
     componentDidMount = async () => {
         const { id } = this.state
-        const movie = await api.getMovieById(id)
+        const movie = await apis.getMovieById(id)
 
         this.setState({
             name: movie.data.data.name,
             rating: movie.data.data.rating,
             time: movie.data.data.time.join('/'),
+            img:movie.data.data.img,
         })
     }
 
     render() {
-        const { name, rating, time } = this.state
+        const { name, rating, time , img } = this.state
         return (
             <Wrapper>
                 <Title>Update Movie</Title>
@@ -120,7 +127,14 @@ class MoviesUpdate extends Component {
                 <InputText
                     type="text"
                     value={time}
+                    
                     onChange={this.handleChangeInputTime}
+                />
+                <Label>Image: </Label>
+                <InputText
+                    type="text"
+                    value={img}
+                    onChange={this.handleChangeInputImg}
                 />
 
                 <Button onClick={this.handleUpdateMovie}>Update Movie</Button>

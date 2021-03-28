@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
-import './movieList.css'
+import './movie-list.css'
 import styled from 'styled-components'
-import ItemList from './Item-list/item-list'
-import apis from '../api'
-import { fetchMovies } from '../actions/actions'
+import ItemList from '../Item-list/item-list'
+import apis from '../../api'
+import { fetchMovies } from '../../actions/actions'
 import { connect } from 'react-redux'
-import Loader from '../components/loader/loader'
+import Loader from '../../components/loader/loader'
 
 const Wrapper = styled.div`
     padding: 0 40px 40px 40px;

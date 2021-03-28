@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
-import apis from '../api';
+import apis from '../../api';
+
 
 
  

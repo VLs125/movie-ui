@@ -1,13 +1,13 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import './item-list.css'
-import DetailsMovie from '../../components/Buttons/details-movie';
-const { default: DeleteMovie } = require("../../components/Buttons/delete");
-const { default: UpdateMovie } = require("../../components/Buttons/update");
+import DetailsMovie from '../../components/buttons/details-movie';
+const { default: DeleteMovie } = require("../../components/buttons/delete");
+const { default: UpdateMovie } = require("../../components/buttons/update");
 
 
 const ItemList = ({data}) => {
     let count = 1;
-    const dataFromProps = data.data
+    const dataFromProps = data.data;
 
     return dataFromProps.map((item) => {
         const id = item._id

@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import apis from '../../api/index'
-import {Context} from '../../context/Context'
 
 const Details = styled.div`
 color: green;

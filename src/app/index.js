@@ -2,12 +2,14 @@ import React,{useState} from 'react'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 
 import { NavBar } from '../components'
-import { MoviesList, MoviesInsert, MoviesUpdate } from '../pages'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import MovieDetails from '../pages/MovieDetails'
 import LoginPage from '../pages/auth/login'
-import SecretPage from '../pages/Secret'
+import SecretPage from '../pages/secret'
+import MovieDetails from '../pages/movie-details/movie-details'
+import MoviesUpdate from '../pages/movie-update/movie-update'
+import MovieListContainer from '../pages/movie-list/movies-list'
+import MoviesInsert from '../pages/movie-insert/movie-insert'
 
 function App() {
     const [isLoggedIn,setLoggedIn] = useState(false);
@@ -21,7 +23,7 @@ function App() {
             <NavBar />
             <Switch>
 
-                <Route path="/movies/list" exact component={MoviesList} />
+                <Route path="/movies/list" exact component={MovieListContainer} />
                 <Route path="/movies/create" exact component={MoviesInsert} />
                 <Route
                     path="/movies/update/:id"
