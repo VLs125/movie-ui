@@ -1,11 +1,11 @@
 const initialState = {
     data: [],
-    loading:false,
+    loading:true,
     error:null,
 
 }
 
-const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
 
     switch (action.type) {
         case 'FETCH_MOVIES_REQUESTED':
@@ -19,9 +19,7 @@ const reducer = (state, action) => {
                 data: action.payload,
                 loading: false,
                 error: null,
-
             };
-
         case 'FETCH_MOVIES_FAILURE':
             return {
                 data: [],
@@ -36,7 +34,7 @@ const reducer = (state, action) => {
 
 
 }
-
+export default reducer
 
 
 
