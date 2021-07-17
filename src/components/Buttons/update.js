@@ -10,9 +10,6 @@ const Update = styled.div`
         
     }
 `
-
-
-
 const UpdateMovie = ({id}) => {
     
     const update = event => {

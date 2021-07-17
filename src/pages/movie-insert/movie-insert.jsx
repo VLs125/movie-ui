@@ -1,6 +1,4 @@
 import React, { useState,useEffect } from 'react'
-import api from '../../api'
-
 import styled from 'styled-components'
 import apis from '../../api'
 
@@ -13,17 +11,14 @@ const Wrapper = styled.div.attrs({
 })`
     margin: 0 30px;
 `
-
 const Label = styled.label`
     margin: 5px;
 `
-
 const InputText = styled.input.attrs({
     className: 'form-control',
 })`
     margin: 5px;
 `
-
 const Button = styled.button.attrs({
     className: `btn btn-primary`,
 })`
@@ -81,7 +76,6 @@ const MoviesInsert = (props) => {
                 setTime('');
                 setImg('');
             })
-
     }
 
         return (
