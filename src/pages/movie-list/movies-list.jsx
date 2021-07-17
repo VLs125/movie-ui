@@ -31,7 +31,6 @@ const MoviesList = (data) => {
 
 
 const MovieListContainer = (props) => {
-
     const { fetchMovies,data,loading,error} = props
 
     useEffect(() => {

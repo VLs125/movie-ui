@@ -1,14 +1,37 @@
-import axios from 'axios'
+const url = 'http://localhost:3001/api';
 
-const api = axios.create({
-    baseURL: 'http://localhost:3001/api',
+export const insertMovie =async (payload) => await fetch(`${url}/movie`, {
+    headers:{
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    },
+    method:"POST",
+    body:JSON.stringify(payload)
+    
 })
 
-export const insertMovie = payload => api.post(`/movie`, payload)
-export const getAllMovies = () => api.get(`/movies`)
-export const updateMovieById = (id, payload) => api.put(`/movie/${id}`, payload)
-export const deleteMovieById = id => api.delete(`/movie/${id}`)
-export const getMovieById = id => api.get(`/movie/${id}`)
+export const getAllMovies = async() => {
+    const response = await fetch(`${url}/movies`)
+    return await response.json().then(data=>data);
+};
+
+export const updateMovieById = async (id, payload) => await fetch(`${url}/movie/${id}`, {
+    headers:{
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    },
+    method:"PUT",
+    body:JSON.stringify(payload)
+    
+});
+
+export const deleteMovieById = async (id) => await fetch(`${url}/movie/${id}`, {
+    method:"DELETE",
+});
+
+export const getMovieById = async(id) =>  {
+    await fetch(`${url}/movie/${id}`)
+};
 
 const apis = {
     insertMovie,

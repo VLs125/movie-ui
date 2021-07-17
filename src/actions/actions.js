@@ -20,11 +20,12 @@ const moviesError = (error) => {
 
 }
 
-const fetchMovies = (apis, dispatch) => () => {
+const fetchMovies =  (apis, dispatch) => () => {
     dispatch(moviesRequested());
-    apis.getAllMovies()
+   apis.getAllMovies()
         .then((data) => {
-            dispatch(moviesLoaded(data.data.data));
+            console.log(data);
+            dispatch(moviesLoaded(data.data));
         })
         .catch((error) => {
             dispatch(moviesError(error));
