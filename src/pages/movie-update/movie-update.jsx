@@ -48,26 +48,10 @@ class MoviesUpdate extends Component {
         }
     }
 
-    handleChangeInputName = async event => {
-        const name = event.target.value
-        this.setState({ name })
-    }
-
-    handleChangeInputRating = async event => {
-        const rating = event.target.validity.valid
-            ? event.target.value
-            : this.state.rating
-
-        this.setState({ rating })
-    }
-    handleChangeInputTime = async event => {
-        const time = event.target.value
-        this.setState({ time })
-    }
-
-    handleChangeInputImg = async event => {
-        const img = event.target.value
-        this.setState({ img })
+    handleChange = async (event) => {
+        const {value,name} = event.targer;
+        
+        this.setState({ [name]:value })
     }
 
     handleUpdateMovie = async () => {
@@ -106,6 +90,7 @@ class MoviesUpdate extends Component {
 
                 <Label>Name: </Label>
                 <InputText
+                    name="name"
                     type="text"
                     value={name}
                     onChange={this.handleChangeInputName}
@@ -113,6 +98,7 @@ class MoviesUpdate extends Component {
 
                 <Label>Rating: </Label>
                 <InputText
+                    name="rating"
                     type="number"
                     step="0.1"
                     lang="en-US"
@@ -125,6 +111,7 @@ class MoviesUpdate extends Component {
 
                 <Label>Time: </Label>
                 <InputText
+                    name="time"
                     type="text"
                     value={time}
                     
@@ -132,6 +119,7 @@ class MoviesUpdate extends Component {
                 />
                 <Label>Image: </Label>
                 <InputText
+                    name="img"
                     type="text"
                     value={img}
                     onChange={this.handleChangeInputImg}

@@ -20,7 +20,13 @@ function App() {
         <Router>
             <NavBar />
             <Switch>
-
+            <Route 
+                path="/" 
+                exact 
+                render={()=>{
+                    return <LoginPage isLoggedIn={isLoggedIn}
+                    onLogin={onLogin}/>
+                }}/>
                 <Route path="/movies/list" exact component={MovieListContainer} />
                 <Route path="/movies/create" exact component={MoviesInsert} />
                 <Route
@@ -31,16 +37,8 @@ function App() {
                 <Route 
                 path="/movies/details/:id" 
                 exact 
-                component={MovieDetails}>
+                component={MovieDetails}/>
 
-                </Route>
-                <Route 
-                path="/" 
-                exact 
-                render={()=>{
-                    return <LoginPage isLoggedIn={isLoggedIn}
-                    onLogin={onLogin}/>
-                }}/>
                  <Route 
                  path="/movies/secret" 
                  exact 

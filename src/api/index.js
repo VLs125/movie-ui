@@ -14,7 +14,6 @@ export const getAllMovies = async() => {
     const response = await fetch(`${url}/movies`)
     return await response.json().then(data=>data);
 };
-
 export const updateMovieById = async (id, payload) => await fetch(`${url}/movie/${id}`, {
     headers:{
         'Accept': 'application/json',
@@ -24,7 +23,6 @@ export const updateMovieById = async (id, payload) => await fetch(`${url}/movie/
     body:JSON.stringify(payload)
     
 });
-
 export const deleteMovieById = async (id) => await fetch(`${url}/movie/${id}`, {
     method:"DELETE",
 });

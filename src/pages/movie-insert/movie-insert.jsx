@@ -39,21 +39,27 @@ const MoviesInsert = (props) => {
 
   const [upload, setUpload] = useState({});
 
-  const handleChangeInputName = (event) => {
-    setName(event.target.value);
+  const handleChange = (e) => {
+      const {name,value} = e.target;
+      switch(name){
+        case 'name':
+            setName(value);
+            break;
+        case 'rating':
+            setRating(value);
+            break;
+        case 'time':
+            setTime(value);
+            break;
+        case 'img':
+            setImg(value);
+            break;
+        
+      }
+    setName(e.target.value);
   };
 
-  const handleChangeInputRating = (event) => {
-    const getRating = event.target.validity.valid ? event.target.value : rating;
-    setRating(getRating);
-  };
 
-  const handleChangeInputTime = (event) => {
-    setTime(event.target.value);
-  };
-  const handleChangeInputImg = (event) => {
-    setImg(event.target.value);
-  };
 
   const handleIncludeMovie = () => {
     setUpload({ name, rating, time, img });
@@ -74,12 +80,11 @@ const MoviesInsert = (props) => {
   return (
     <Wrapper>
       <Title>Create Movie</Title>
-
       <Label>Name: </Label>
-      <InputText type="text" value={name} onChange={handleChangeInputName} />
-
+      <InputText name="name"t type="text" value={name} onChange={handleChange} />
       <Label>Rating: </Label>
       <InputText
+        name="rating"
         type="number"
         step="0.1"
         lang="en-US"
@@ -87,14 +92,14 @@ const MoviesInsert = (props) => {
         max="10"
         pattern="[0-9]+([,\.][0-9]+)?"
         value={rating}
-        onChange={handleChangeInputRating}
+        onChange={handleChange}
       />
 
       <Label>Time: </Label>
-      <InputText type="text" value={time} onChange={handleChangeInputTime} />
+      <InputText name="time" type="text" value={time} onChange={handleChange} />
 
       <Label>Image: </Label>
-      <InputText type="text" value={img} onChange={handleChangeInputImg} />
+      <InputText name="img" type="text" value={img} onChange={handleChange} />
 
       <Button onClick={handleIncludeMovie}>Add Movie</Button>
       <CancelButton href={"/movies/list"}>Cancel</CancelButton>

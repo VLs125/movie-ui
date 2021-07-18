@@ -30,7 +30,7 @@ class Links extends Component {
                         </Item>
                         <Item>
                             <Link to="/movies/create" className="nav-link">
-                                Create Movie
+                                Add Movie
                             </Link>
                         </Item>
                         <Item>
