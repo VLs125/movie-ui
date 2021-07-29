@@ -73,12 +73,13 @@ class MoviesUpdate extends Component {
     componentDidMount = async () => {
         const { id } = this.state
         const movie = await apis.getMovieById(id)
+        console.log(movie);
 
         this.setState({
-            name: movie.data.data.name,
-            rating: movie.data.data.rating,
-            time: movie.data.data.time.join('/'),
-            img:movie.data.data.img,
+            name: movie.name,
+            rating: movie.rating,
+           // time: movie.time.join('/'),
+            img:movie.img,
         })
     }
 
@@ -114,7 +115,6 @@ class MoviesUpdate extends Component {
                     name="time"
                     type="text"
                     value={time}
-                    
                     onChange={this.handleChangeInputTime}
                 />
                 <Label>Image: </Label>

@@ -9,21 +9,18 @@ const MovieDetails = (props) => {
 
 useEffect(() => {
     const id = props.match.params.id
-    let isCanceled = false
   apis.getMovieById(id)
         .then(movie => {
-            setData(movie.data.data);
+            console.log(movie)
+            setData(movie);
             setIsLoading(true);
         })
-    return () => {
-        isCanceled = true;
-    }
-}, [])
+    }, [props.match.params.id])
     return(
         <React.Fragment>
         <div>Film</div>
         <div> {data.name} </div>
-        <img src={data.img}/>
+        <img src={data.img} alt={data.name}/>
         </React.Fragment>)
 
 

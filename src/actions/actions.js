@@ -24,7 +24,7 @@ const fetchMovies =  (apis, dispatch) => () => {
     dispatch(moviesRequested());
    apis.getAllMovies()
         .then((data) => {
-            dispatch(moviesLoaded(data.data));
+            dispatch(moviesLoaded(data));
         })
         .catch((error) => {
             dispatch(moviesError(error));

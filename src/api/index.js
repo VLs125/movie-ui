@@ -1,4 +1,4 @@
-const url = 'http://localhost:3001/api';
+const url = 'http://localhost:3001/api/v1';
 
 export const insertMovie =async (payload) => await fetch(`${url}/movie`, {
     headers:{
@@ -11,8 +11,9 @@ export const insertMovie =async (payload) => await fetch(`${url}/movie`, {
 })
 
 export const getAllMovies = async() => {
-    const response = await fetch(`${url}/movies`)
-    return await response.json().then(data=>data);
+    const response = await fetch(`${url}/movie`)
+    const data = await response.json().then(data=>data)
+    return data;
 };
 export const updateMovieById = async (id, payload) => await fetch(`${url}/movie/${id}`, {
     headers:{
@@ -28,7 +29,9 @@ export const deleteMovieById = async (id) => await fetch(`${url}/movie/${id}`, {
 });
 
 export const getMovieById = async(id) =>  {
-    await fetch(`${url}/movie/${id}`)
+    const response = await fetch(`${url}/movie/${id}`);
+    const data = await response.json()
+   return data
 };
 
 const apis = {

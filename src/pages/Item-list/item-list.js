@@ -7,10 +7,8 @@ const { default: UpdateMovie } = require("../../components/buttons/update");
 
 const ItemList = ({data}) => {
     let count = 1;
-    const dataFromProps = data.data;
-
-    return dataFromProps.map((item) => {
-        const id = item._id
+    return data.data.map((item) => {
+        const id = item.id
         return (
                 <tr key={id} className="movies-list">
                     <th scope="row">{count++}</th>
