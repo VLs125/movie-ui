@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import apis from '../../api';
-
+import './movie-details.css';
 
 const MovieDetails = (props) => {
     
@@ -17,11 +17,15 @@ useEffect(() => {
         })
     }, [props.match.params.id])
     return(
-        <React.Fragment>
-        <div>Film</div>
-        <div> {data.name} </div>
+        <div className="movie-details">
+        <div> {data.ruName}</div>
+        <div> {data.enName} </div>
+        <div> {data.rating} </div>
+        <div>{data.url}</div>
         <img src={data.img} alt={data.name}/>
-        </React.Fragment>)
+        </div>
+        
+        )
 
 
 }

@@ -12,7 +12,7 @@ const ItemList = ({data}) => {
         return (
                 <tr key={id} className="movies-list">
                     <th scope="row">{count++}</th>
-                    <td>{item.name}</td>
+                    <td>{item.ruName}</td>
                     <td className="buttons"><span ><UpdateMovie id={id} /></span><span><DeleteMovie id={id}/></span><span><DetailsMovie id={id}/></span></td>
                 </tr>
     
